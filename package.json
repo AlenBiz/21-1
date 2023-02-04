@@ -1,0 +1,33 @@
+{
+  "name": "21-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "cy:run:cloud": "cypress run --record --key ad3a4bd5-b0cf-4f22-8675-de3a9b4d271b",
+    "cy:folder1:cloud": "cypress run --spec 'cypress/e2e/folder1/*.js' --record --key ad3a4bd5-b0cf-4f22-8675-de3a9b4d271b",
+    "cy:folder2:cloud": "cypress run --spec 'cypress/e2e/folder2/*.js' --record --key ad3a4bd5-b0cf-4f22-8675-de3a9b4d271b",
+    "cy:lokal:folder1": "cypress run --spec 'cypress/e2e/folder1/*.*'",
+    "cy:lokal:folder2": "cypress run --spec 'cypress/e2e/folder2/*.*'",
+    "cy:cloud:parallel": "npm run cy:folder1:cloud -- --browser chrome --group Folder1 --ci-build-id 5 --parallel & npm run cy:folder2:cloud -- --browser chrome --group Folder2 --ci-build-id 5 --parallel",
+    "cy:lokal:parallel": "npm run cy:lokal:folder1 -- --browser chrome & npm run cy:lokal:folder2 -- --browser electron",
+    "cy:folder1:chrome:config13d:cloud": "cypress run --spec 'cypress/e2e/folder1/*.js' --browser chrome --config-file cypress13d.config.js --record --key ad3a4bd5-b0cf-4f22-8675-de3a9b4d271b",
+    "cy:folder2:electron:comfig24d:cloud": "cypress run --spec 'cypress/e2e/folder1/*.js'  --browser electron --config-file cypress24d.config.js --record --key ad3a4bd5-b0cf-4f22-8675-de3a9b4d271b",
+    "cy:parallel:folder1:chrome:config13d:folder2:electron:comfig24d:cloud": "npm run cy:folder1:chrome:config13d:cloud -- --group chrome --ci-build-id 22 --parallel & npm run cy:folder2:electron:comfig24d:cloud -- --group electron --ci-build-id 22 --parallel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlenBiz/21-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlenBiz/21-1/issues"
+  },
+  "homepage": "https://github.com/AlenBiz/21-1#readme",
+  "devDependencies": {
+    "cypress": "^12.5.0"
+  }
+}
